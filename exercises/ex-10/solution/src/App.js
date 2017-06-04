@@ -1,22 +1,17 @@
 import React, {Component} from 'react';
 
-class App extends Component {
+import './css/local.css';
+
+import Navbar from './Navbar';
+import PayeesContainer from './payees/PayeesContainer';
+
+export default class App extends Component {
   render() {
     return (
-      <div>
-        <nav className="navbar navbar-default">
-          <div className="navbar-header">
-            <a href="#" className="navbar-brand">Banking</a>
-          </div>
-          <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav">
-              <li class="active">Payees</li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <section>
+        <Navbar/>
+        <PayeesContainer/>
+      </section>
     );
   }
 }
-
-export default App;
