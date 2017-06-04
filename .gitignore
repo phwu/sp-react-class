@@ -1,0 +1,24 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+
+.DS_Store
+
+node_modules
+yarn.lock
+**/*.log
+
+images/
+
+src/**/*.js
+src/payees
+src/tests
+!src/index.js
+!src/images
+!src/css
+!src/data
+!src/data/*.js
+
+public/index.html
+
+exercises/proto
+
