@@ -9,7 +9,8 @@ const App = () => {
     city   : 'Franklin Lakes',
     state  : 'NJ',
     zip    : '07027'
-  }
+  };
+  
   return (
     <section>
       <CustomHeader today="Monday"/>
