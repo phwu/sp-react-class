@@ -9,6 +9,7 @@ let exercises = 'exercises/',
   src = 'src/',
   publicFolder = 'public/',
   files = '**/*.+(js|html)',
+  notData = '!' + src + 'data/**/*',
   allFiles = '**/*';
 
 let options = minimist( process.argv.slice( 2 ) );
@@ -35,7 +36,7 @@ gulp.task( 'show-solution', [ 'clean-all' ], function() {
 
 gulp.task( 'copy-to-begin', [ 'clean-begin' ], () => {
   if ( options.dest ) {
-    gulp.src( src + files )
+    gulp.src( [src + files, notData] )
       .pipe( gulp.dest( exercises + options.dest + begin + src ) );
     gulp.src( publicFolder + files )
       .pipe( gulp.dest( exercises + options.dest + begin + publicFolder ) );
@@ -45,7 +46,7 @@ gulp.task( 'copy-to-begin', [ 'clean-begin' ], () => {
 gulp.task( 'copy-to-solution', [ 'clean-solution' ], () => {
   if ( options.dest ) {
     // TODO: Make sure that the data folder is not included
-    gulp.src( src + files )
+    gulp.src( [src + files, notData] )
       .pipe( gulp.dest( exercises + options.dest + solution + src ) );
     gulp.src( publicFolder + files )
       .pipe( gulp.dest( exercises + options.dest + solution + publicFolder ) );
@@ -63,7 +64,7 @@ gulp.task( 'clean-begin', () => {
 } );
 
 gulp.task( 'clean-src', () => {
-  return del( src + files );
+  return del( [ src + files, notData ] );
 } );
 
 gulp.task( 'clean-public', () => {
