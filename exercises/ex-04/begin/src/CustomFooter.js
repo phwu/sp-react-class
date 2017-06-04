@@ -2,7 +2,7 @@ import React from 'react';
 
 const CustomFooter = ( props ) => {
   return (
-    <div className="footer">
+    <div class="footer">
       <hr/>
       <p>Copyright &copy; 2017 {props.company.name}</p>
       <address>
