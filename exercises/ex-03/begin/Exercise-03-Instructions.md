@@ -40,4 +40,4 @@ Open App.js
 ### Testing
 
 Load [http://localhost:3000/](http://localhost:3000/) in your browser. It should look like this: 
-![Exercise 3 Solution](src/images/ex-03-complete.png)
+![Exercise 3 Solution](images/ex-03-complete.png)
