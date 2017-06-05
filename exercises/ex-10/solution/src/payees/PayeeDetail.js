@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PayeeDetail = ( {payee} ) => {
+const PayeeDetail = ( { payee } ) => {
 
   let classes = 'panel ';
   switch ( payee.category.categoryName ) {

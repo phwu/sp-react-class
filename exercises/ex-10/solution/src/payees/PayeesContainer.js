@@ -1,52 +1,24 @@
 import React, {Component} from 'react';
 
 import {payeesDAO} from '../data/class-data';
-import PayeeList from './PayeeList';
-import PayeeBrowser from './PayeeBrowser';
+import PayeeDetail from './PayeeDetail';
+import BrowserButtons from '../BrowserButtons';
 
 class PayeesContainer extends Component {
   constructor( props ) {
     super( props );
 
-    this.views = {
-      LIST  : 'list',
-      DETAIL: 'detail'
-    };
-
     this.state = {
-      view     : this.views.LIST,
-      payee    : null,
+      payee    : payeesDAO.list()[ 0 ],
       payeeList: payeesDAO.list(),
-      sortField: ''
     };
 
-    this.handlePayeeSelect = this.handlePayeeSelect.bind( this );
-    this.backToList = this.backToList.bind( this );
-    this.switchView = this.switchView.bind( this );
     this.handleNextPrev = this.handleNextPrev.bind( this );
   }
 
-  handlePayeeSelect( payee ) {
-    console.log( 'PayeesContainer.handlePayeeSelect received ', payee );
-    this.setState( {
-      view : 'detail',
-      payee: payee
-    } );
-  }
-
-  backToList() {
-    this.setState( { view: this.views.LIST } );
-  }
-
-  switchView( viewName ) {
-    this.setState( {
-      view: viewName
-    } );
-  }
-
-  handleNextPrev( payee, direction ) {
-    let pos = this.state.payeeList.indexOf( payee );
-    let next;
+  handleNextPrev( direction ) {
+    let pos = this.state.payeeList.indexOf( this.state.payee );
+    let next = 0;
 
     if ( direction === 'next' ) {
       next = Math.min( pos + 1, this.state.payeeList.length - 1 );
@@ -60,21 +32,19 @@ class PayeesContainer extends Component {
   }
 
   render() {
-    let view = ( <PayeeList payees={this.state.payeeList}
-                            onPayeeSelect={this.handlePayeeSelect}/> );
-    if ( this.state.view === this.views.DETAIL ) {
-      view = (
-        <PayeeBrowser payee={this.state.payee}
-                      onNextPrev={this.handleNextPrev}
-                      onBack={this.backToList}/>
-      );
-
-    }
-
     return (
-      <div>
-        {view}
-      </div>
+      <section>
+        <div className="row">
+          <div className="col-md-6 col-md-offset-3">
+            <PayeeDetail payee={this.state.payee}/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6 col-md-offset-3 text-center">
+            <BrowserButtons onNextPrev={this.handleNextPrev}/>
+          </div>
+        </div>
+      </section>
     );
   }
 }

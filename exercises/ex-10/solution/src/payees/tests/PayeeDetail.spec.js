@@ -1,35 +1,61 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import {payeesDAO} from '../../data/class-data';
 import PayeeDetail from '../PayeeDetail';
 
-let wrapper, payee;
+describe( 'PayeeDetail snapshots', () => {
+  test( 'renders correctly', () => {
+    let payee = payeesDAO.get( 23 );
+    const tree = renderer.create(
+      <PayeeDetail payee={payee}/>
+    ).toJSON();
+    expect( tree ).toMatchSnapshot();
+  } );
 
-beforeEach( () => {
-  payee = payeesDAO.get( 23 );
+  test( 'renders a "Clothing" payee differently', () => {
+    let clothingPayees = payeesDAO.list( { category: { categoryName: 'Clothing' } } );
+    expect( clothingPayees.length ).toBeGreaterThan( 0 );
 
-  wrapper = shallow( <PayeeDetail payee={payee}/> );
+    const tree = renderer.create(
+      <PayeeDetail payee={clothingPayees[ 0 ]}/>
+    ).toJSON();
+
+    expect( tree ).toMatchSnapshot();
+  } );
 } );
 
-test( 'PayeeDetail renders a payee', () => {
-  let text = wrapper.text();
+describe( 'PayeeDetail standard tests', () => {
 
-  expect( text.includes( payee.zip ) ).toBeTruthy();
-  expect( text.includes( payee.payeeName ) ).toBeTruthy();
-  expect( text.includes( payee.address ) ).toBeTruthy();
-  expect( text.includes( payee.city ) ).toBeTruthy();
-  expect( text.includes( payee.state ) ).toBeTruthy();
-  expect( text.includes( payee.zip ) ).toBeTruthy();
-} );
+  let wrapper, payee;
 
-test( 'PayeeDetail has the right props', () => {
-  let props = wrapper.instance().props;
-  expect( props.payee ).toBe( payee );
-} );
+  beforeEach( () => {
+    payee = payeesDAO.get( 23 );
 
-test( 'PayeeDetail renders a categoryName', () => {
-  let text = wrapper.text();
-  expect( text.includes( payee.category.categoryName ) ).toBeTruthy();
+    wrapper = shallow( <PayeeDetail payee={payee}/> );
+  } );
+
+  test( 'PayeeDetail renders a payee', () => {
+    let text = wrapper.text();
+
+    expect( text.includes( payee.zip ) ).toBeTruthy();
+    expect( text.includes( payee.payeeName ) ).toBeTruthy();
+    expect( text.includes( payee.address ) ).toBeTruthy();
+    expect( text.includes( payee.city ) ).toBeTruthy();
+    expect( text.includes( payee.state ) ).toBeTruthy();
+    expect( text.includes( payee.zip ) ).toBeTruthy();
+  } );
+
+  test( 'PayeeDetail has the right props', () => {
+    let props = wrapper.instance().props;
+    expect( props.payee ).toBe( payee );
+  } );
+
+  test( 'PayeeDetail renders a categoryName', () => {
+    let text = wrapper.text();
+    expect( text.includes( payee.category.categoryName ) ).toBeTruthy();
+  } );
+
 } );
 
 describe( 'PayeeDetail class changes', () => {
