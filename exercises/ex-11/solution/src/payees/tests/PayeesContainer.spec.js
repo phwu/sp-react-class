@@ -15,6 +15,7 @@ beforeEach( () => {
 
 test( 'Handling next and previous', () => {
   let sortSpy = sinon.spy( wrapper.get( 0 ), 'handleNextPrev' );
+  expect(sortSpy.called).toBeFalsy();
   wrapper.update();
   wrapper.find( 'button[name="previous"]' ).simulate( 'click' );
 
