@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import sinon from 'sinon';
 import BrowserButtons from '../BrowserButtons';
 
-let wrapper, onNextPrevSpy, onBackSpy;
+let wrapper, onNextPrevSpy;
 
 beforeEach( () => {
   onNextPrevSpy = sinon.spy();
