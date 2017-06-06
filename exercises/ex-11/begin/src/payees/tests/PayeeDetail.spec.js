@@ -13,16 +13,6 @@ describe( 'PayeeDetail snapshots', () => {
     expect( tree ).toMatchSnapshot();
   } );
 
-  test( 'renders a "Clothing" payee differently', () => {
-    let clothingPayees = payeesDAO.list( { category: { categoryName: 'Clothing' } } );
-    expect( clothingPayees.length ).toBeGreaterThan( 0 );
-
-    const tree = renderer.create(
-      <PayeeDetail payee={clothingPayees[ 0 ]}/>
-    ).toJSON();
-
-    expect( tree ).toMatchSnapshot();
-  } );
 } );
 
 describe( 'PayeeDetail standard tests', () => {
@@ -44,11 +34,6 @@ describe( 'PayeeDetail standard tests', () => {
     expect( text.includes( payee.city ) ).toBeTruthy();
     expect( text.includes( payee.state ) ).toBeTruthy();
     expect( text.includes( payee.zip ) ).toBeTruthy();
-  } );
-
-  test( 'PayeeDetail has the right props', () => {
-    let props = wrapper.instance().props;
-    expect( props.payee ).toBe( payee );
   } );
 
   test( 'PayeeDetail renders a categoryName', () => {
