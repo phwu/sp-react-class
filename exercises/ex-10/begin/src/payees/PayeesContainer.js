@@ -37,12 +37,12 @@ class PayeesContainer extends Component {
       <section>
         <div className="row">
           <div className="col-md-6 col-md-offset-3">
-            <PayeeDetail payee={this.state.payee}/>
+            <h3>PayeeDetail goes here</h3>
           </div>
         </div>
         <div className="row">
           <div className="col-md-6 col-md-offset-3 text-center">
-            <BrowserButtons onNextPrev={this.handleNextPrev}/>
+            <h3>BrowserButtons goes here</h3>
           </div>
         </div>
       </section>
