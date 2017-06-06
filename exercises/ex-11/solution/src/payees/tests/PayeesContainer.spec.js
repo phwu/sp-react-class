@@ -2,10 +2,8 @@ import React from 'react';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
 import PayeesContainer from '../PayeesContainer';
-import PayeeList from '../PayeeList';
-import PayeeRow from '../PayeeRow';
-import BrowserButtons from '../../BrowserButtons';
 import {payeesDAO} from '../../data/class-data';
+import PayeeDetail from '../PayeeDetail';
 
 let payees, wrapper;
 
@@ -15,30 +13,37 @@ beforeEach( () => {
 
 } );
 
-test( 'Rendering the list', () => {
-  let list = wrapper.find( PayeeList );
-  let firstRow = list.find( PayeeRow ).at( 0 );
-
-  expect( firstRow.find( 'td' ).at( 0 ).text() ).toMatch( payees[ 0 ].payeeName );
-
-} );
-
-test('Selecting a payee', () => {
-  expect(wrapper.state().payee).toBeNull();
-  expect(wrapper.state().view).toBe('list');
-
-  wrapper.find(PayeeRow).at(0).simulate('click');
-
-  expect(wrapper.state().payee).toBeDefined();
-  expect(wrapper.state().view).toBe('detail');
-
-});
-
-test('Handling next and previous', () => {
-  let sortSpy = sinon.spy( wrapper.get(0), 'handleNextPrev' );
+test( 'Handling next and previous', () => {
+  let sortSpy = sinon.spy( wrapper.get( 0 ), 'handleNextPrev' );
   wrapper.update();
-  wrapper.find(PayeeRow).at(0).simulate('click');
   wrapper.find( 'button[name="previous"]' ).simulate( 'click' );
 
-  expect(sortSpy.called).toBeTruthy();
+  expect( sortSpy.called ).toBeTruthy();
+} );
+
+test( 'Check initial payee', () => {
+  let expectedPayee = payees[ 0 ];
+
+  // Check references
+  expect( wrapper.find( PayeeDetail ).prop( 'payee' ) ).toEqual( expectedPayee );
+
+  // Check content
+  expect( wrapper.find( '.panel-heading' ).text() ).toMatch( expectedPayee.payeeName );
+} );
+
+test('Check next payee', () => {
+  let expectedPayee = payees[ 1 ];
+
+  wrapper.find('button[name="next"]').simulate('click');
+
+  // Check references
+  expect( wrapper.find( PayeeDetail ).prop( 'payee' ) ).toEqual( expectedPayee );
+
+  // Check content
+  expect( wrapper.find( '.panel-heading' ).text() ).toMatch( expectedPayee.payeeName );
+
+  // Check the negative
+  expect( wrapper.find( PayeeDetail ).prop( 'payee' ) ).not.toEqual( payees[0] );
+  expect( wrapper.find( '.panel-heading' ).text() ).not.toMatch( payees[0].payeeName );
+
 });

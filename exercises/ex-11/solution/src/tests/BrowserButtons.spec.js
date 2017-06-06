@@ -7,9 +7,8 @@ let wrapper, onNextPrevSpy, onBackSpy;
 
 beforeEach( () => {
   onNextPrevSpy = sinon.spy();
-  onBackSpy = sinon.spy();
-  wrapper = shallow( <BrowserButtons onNextPrev={onNextPrevSpy} onBack={onBackSpy}/> );
-} )
+  wrapper = shallow( <BrowserButtons onNextPrev={onNextPrevSpy}/> );
+} );
 
 test( 'Register a "Previous" click', () => {
   wrapper.find( '[name="previous"]' ).simulate( 'click' );
@@ -23,11 +22,3 @@ test( 'Register a "Next" click', () => {
   expect( onNextPrevSpy.callCount ).toBeGreaterThan( 0 );
 } );
 
-test( 'Register a "onBack" click', () => {
-  wrapper.findWhere( e => {
-    return e.text().includes( 'Back' ) && e.is( 'button' );
-  } )
-    .simulate( 'click' );
-
-  expect( onBackSpy.callCount ).toBeGreaterThan( 0 );
-} );
