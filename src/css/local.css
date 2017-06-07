@@ -19,3 +19,11 @@
 th.clickable, td.clickable, tr.clickable {
     cursor: pointer;
 }
+
+.payee-active {
+    background-color: lightgreen;
+}
+
+.payee-inactive {
+    background-color: yellow;
+}
