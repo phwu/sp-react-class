@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {payeesDAO} from '../data/class-data';
 
+// Add action here
+
 class PayeeDetailRedux extends Component {
   constructor( props ) {
     super( props );

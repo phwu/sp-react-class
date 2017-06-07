@@ -4,17 +4,16 @@ import {createStore} from 'redux';
 import {payeesDAO} from '../data/class-data';
 
 // Add action here
-const toggleActive = ( payee ) => {
+const toggleActive = () => {
   return {
-    type : 'TOGGLE_PAYEE_ACTIVE',
-    payee: payee
+    type: 'TOGGLE_PAYEE_ACTIVE'
   };
 };
 
 // Add reducer here
 const payee = ( state = payeesDAO.get( 23 ), action ) => {
   if ( action.type === 'TOGGLE_PAYEE_ACTIVE' ) {
-    let nextState = { ...action.payee };
+    let nextState = { ...state };
     nextState.active = !nextState.active;
     return nextState;
   } else {
@@ -44,7 +43,7 @@ class PayeeDetailRedux extends Component {
 
   toggleActive() {
     // Dispatch action here
-    store.dispatch( toggleActive( this.state.payee ) );
+    store.dispatch( toggleActive() );
   }
 
   render() {

@@ -3,10 +3,9 @@ import React, {Component} from 'react';
 import {payeesDAO} from '../data/class-data';
 
 // Add action here
-const toggleActive = (payee) => {
+const toggleActive = () => {
   return {
-    type: 'TOGGLE_PAYEE_ACTIVE',
-    payee: payee
+    type: 'TOGGLE_PAYEE_ACTIVE'
   };
 };
 
