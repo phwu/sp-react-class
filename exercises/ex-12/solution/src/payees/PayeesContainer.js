@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {payeesDAO} from '../../data/class-data';
+import {payeesDAO} from '../data/class-data';
 import PayeeList from './PayeeList';
 import PayeeBrowser from './PayeeBrowser';
 
