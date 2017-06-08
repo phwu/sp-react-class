@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function BrowserButtons( { onNextPrev } ) {
   return (
@@ -17,9 +16,5 @@ function BrowserButtons( { onNextPrev } ) {
     </div>
   );
 }
-
-BrowserButtons.propTypes = {
-  onNextPrev: PropTypes.func.isRequired
-};
 
 export default BrowserButtons;

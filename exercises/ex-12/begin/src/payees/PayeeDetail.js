@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const PayeeDetail = ( { payee } ) => {
 
@@ -31,18 +30,6 @@ const PayeeDetail = ( { payee } ) => {
       </ul>
     </div>
   );
-};
-
-PayeeDetail.propTypes = {
-  payee: PropTypes.shape( {
-    id        : PropTypes.string.isRequired,
-    payeeName : PropTypes.string.isRequired,
-    address   : PropTypes.string,
-    city      : PropTypes.string,
-    state     : PropTypes.string,
-    zip       : PropTypes.string,
-    categoryId: PropTypes.string.isRequired
-  } ).isRequired
 };
 
 export default PayeeDetail;
