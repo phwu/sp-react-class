@@ -61,6 +61,3 @@ Then, in a second `test`, after mounting the component, simulate a click on the
 
 Do not forget to add negative checks (e.g., the state is **NOT** the first Payee)
  
-### Testing
-
-If you did not alread
