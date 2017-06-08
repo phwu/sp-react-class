@@ -45,7 +45,7 @@ class PayeesContainer extends Component {
       next = Math.max( pos - 1, 0 );
     }
 
-    let nextPayee = this.payeeList[ next ];
+    let nextPayee = this.state.payeeList[ next ];
 
     this.setState( {
       payee: nextPayee
