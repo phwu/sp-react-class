@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "rest": "json-server --port 8001 --static src/data/ src/data/class-data.json"
+    "rest": "json-server --port 8001 --static src/data/ src/data/class-data-mapped.json"
   },
   "keywords": [
     "react",
