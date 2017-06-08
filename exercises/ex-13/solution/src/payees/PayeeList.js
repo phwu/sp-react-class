@@ -1,7 +1,7 @@
 import React from 'react';
 import PayeeRow from './PayeeRow';
 
-const PayeeList = ( { payees, onListSort, onPayeeSelect } ) => (
+const PayeeList = ( { payees, onPayeeSelect } ) => (
   <table className="table table-hover">
     <thead>
     <tr>

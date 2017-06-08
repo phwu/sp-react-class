@@ -16,32 +16,23 @@ class PayeesContainer extends Component {
     this.state = {
       view     : this.views.LIST,
       payee    : null,
-      payeeList: payeesDAO.list(),
-      sortField: ''
+      payeeList: payeesDAO.list()
     };
 
     this.handlePayeeSelect = this.handlePayeeSelect.bind( this );
     this.backToList = this.backToList.bind( this );
-    this.switchView = this.switchView.bind( this );
     this.handleNextPrev = this.handleNextPrev.bind( this );
   }
 
   handlePayeeSelect( payee ) {
-    console.log( 'PayeesContainer.handlePayeeSelect received ', payee );
     this.setState( {
-      view : 'detail',
+      view : this.views.DETAIL,
       payee: payee
     } );
   }
 
   backToList() {
     this.setState( { view: this.views.LIST } );
-  }
-
-  switchView( viewName ) {
-    this.setState( {
-      view: viewName
-    } );
   }
 
   handleNextPrev( payee, direction ) {
@@ -54,8 +45,10 @@ class PayeesContainer extends Component {
       next = Math.max( pos - 1, 0 );
     }
 
+    let nextPayee = this.payeeList[ next ];
+
     this.setState( {
-      payee: payeesDAO.get( this.state.payeeList[ next ].id )
+      payee: nextPayee
     } );
   }
 
