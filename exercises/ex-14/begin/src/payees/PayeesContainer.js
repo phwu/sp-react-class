@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import _sortBy from 'lodash/sortBy';
 
 import {payeesDAO} from '../data/class-data';
 import PayeeList from './PayeeList';
@@ -17,11 +16,9 @@ class PayeesContainer extends Component {
     this.state = {
       view     : this.views.LIST,
       payee    : null,
-      payeeList: payeesDAO.list(),
-      sortField: ''
+      payeeList: payeesDAO.list()
     };
 
-    this.handleSort = this.handleSort.bind( this );
     this.handlePayeeSelect = this.handlePayeeSelect.bind( this );
     this.backToList = this.backToList.bind( this );
     this.handleNextPrev = this.handleNextPrev.bind( this );
@@ -55,24 +52,9 @@ class PayeesContainer extends Component {
     } );
   }
 
-  handleSort( sortField ) {
-    if ( this.state.sortField === sortField ) {
-      this.setState( {
-        sortField: sortField,
-        payeeList: this.state.payeeList.reverse()
-      } );
-    } else {
-      this.setState( {
-        sortField: sortField,
-        payeeList: _sortBy( this.state.payeeList, [ sortField ] )
-      } );
-    }
-  }
-
   render() {
     let view = ( <PayeeList payees={this.state.payeeList}
-                            onPayeeSelect={this.handlePayeeSelect}
-                            onListSort={this.handleSort}/> );
+                            onPayeeSelect={this.handlePayeeSelect}/> );
     if ( this.state.view === this.views.DETAIL ) {
       view = (
         <PayeeBrowser payee={this.state.payee}
