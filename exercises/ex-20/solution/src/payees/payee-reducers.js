@@ -10,9 +10,6 @@ const payee = ( state = payeesDAO.get( 23 ), action ) => {
       return nextState;
 
     case 'SET_PAYEE':
-      // console.log('payee-reducers.payee.SET_PAYEE: ', action);
-      // view('detail', switchView('detail'));
-      // console.log('AFTER payee-reducers.payee.SET_PAYEE: ', action);
       return { ...action.payee };
 
     case 'GET_NEXT_PREV_PAYEE':
@@ -54,11 +51,9 @@ const view = ( state = 'list', action ) => {
   switch ( action.type ) {
     case 'SWITCH_VIEW':
     case 'SET_PAYEE':
-      // console.log('payee-reducers.view.SWITCH_VIEW: ', action);
       state = action.view;
       return action.view;
     default:
-      // console.log('payee-reducers.view.SWITCH_VIEW (default): ', action);
       return state;
   }
 };
