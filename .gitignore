@@ -19,7 +19,5 @@ src/tests
 !src/data
 !src/data/*.js
 
-public/index.html
-
 exercises/proto
 
