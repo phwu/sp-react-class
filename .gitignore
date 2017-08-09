@@ -8,7 +8,8 @@ yarn.lock
 **/*.log
 
 src/images/
-/images/
+public/images/
+public/instructions*
 
 src/**/*.js
 src/payees

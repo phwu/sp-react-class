@@ -1,6 +1,10 @@
 let gulp = require( 'gulp' ),
-  strip = require( 'gulp-strip-comments' ),
+  markdown = require( 'gulp-markdown' ),
+  concat = require( 'gulp-concat' ),
+  wrap = require( 'gulp-wrap' ),
   del = require( 'del' ),
+  opn = require( 'opn' ),
+  fs = require( 'fs' ),
   minimist = require( 'minimist' );
 
 let exercises = 'exercises/',
@@ -8,6 +12,10 @@ let exercises = 'exercises/',
   solution = '/solution/',
   src = 'src/',
   publicFolder = 'public/',
+  instructions = '-instructions.md',
+  instructionsOut = 'instructions.html',
+  images = 'images/',
+  imageFiles = '**/*.+(png|jpg|gif)',
   files = '**/*.+(js|html)',
   notData = '!' + src + 'data/**/*',
   allFiles = '**/*';
@@ -18,10 +26,33 @@ let options = minimist( process.argv.slice( 2 ) );
 
 gulp.task( 'start-exercise', [ 'clean-all' ], function() {
   if ( options.src ) {
-    gulp.src( exercises + options.src + begin + src + files )
+    const baseDir = exercises + options.src + begin;
+    gulp.src( baseDir + src + files )
       .pipe( gulp.dest( src ) );
-    gulp.src( exercises + options.src + begin + publicFolder + files )
+    gulp.src( baseDir + publicFolder + files )
       .pipe( gulp.dest( publicFolder ) );
+
+    gulp.src( baseDir + images + imageFiles )
+      .pipe( gulp.dest( publicFolder + images ) );
+
+    if ( fs.existsSync( baseDir + options.src + instructions ) ) {
+      gulp.src( baseDir + options.src + instructions )
+        .pipe( markdown() )
+        .pipe( wrap( { src: exercises + 'instructions-template.html' } ) )
+        .pipe( concat( instructionsOut ) )
+        .pipe( gulp.dest( publicFolder ) );
+
+      gulp.src( exercises + 'instructions.css' )
+        .pipe( gulp.dest( publicFolder ) );
+
+      opn( 'http://localhost:3000/' + instructionsOut );
+
+      // opn seems to hang up gulp, this exits after a (relatively safe?) 2 seconds
+      setTimeout( () => {
+        process.exit( 0 );
+      }, 2000 );
+    }
+
   }
 } );
 
@@ -36,7 +67,7 @@ gulp.task( 'show-solution', [ 'clean-all' ], function() {
 
 gulp.task( 'copy-to-begin', [ 'clean-begin' ], () => {
   if ( options.dest ) {
-    gulp.src( [src + files, notData] )
+    gulp.src( [ src + files, notData ] )
       .pipe( gulp.dest( exercises + options.dest + begin + src ) );
     gulp.src( publicFolder + files )
       .pipe( gulp.dest( exercises + options.dest + begin + publicFolder ) );
@@ -46,7 +77,7 @@ gulp.task( 'copy-to-begin', [ 'clean-begin' ], () => {
 gulp.task( 'copy-to-solution', [ 'clean-solution' ], () => {
   if ( options.dest ) {
     // TODO: Make sure that the data folder is not included
-    gulp.src( [src + files, notData] )
+    gulp.src( [ src + files, notData ] )
       .pipe( gulp.dest( exercises + options.dest + solution + src ) );
     gulp.src( publicFolder + files )
       .pipe( gulp.dest( exercises + options.dest + solution + publicFolder ) );
@@ -68,23 +99,10 @@ gulp.task( 'clean-src', () => {
 } );
 
 gulp.task( 'clean-public', () => {
-  return del( publicFolder + files );
+  return del( publicFolder + files, { ignore: 'favicon.ico' } );
 } );
 
 gulp.task( 'clean-all', [ 'clean-src', 'clean-public' ] );
-
-gulp.task( 'strip', function() {
-  if ( options.dest ) {
-    let base = exercises + options.dest;
-    gulp.src( [ base + begin + '**/*', base + solution + '**/*' ], { base: base } )
-
-    // Be careful, as this may ruin regexps
-    // But is necessary for anything with decorators
-      .pipe( strip.text() )
-      .pipe( strip.html() )
-      .pipe( gulp.dest( base ) );
-  }
-} );
 
 gulp.task( 'swap', function() {
   if ( options.src && options.dest && options.ex ) {
