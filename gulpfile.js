@@ -35,7 +35,9 @@ gulp.task( 'start-exercise', [ 'clean-all' ], function() {
     gulp.src( baseDir + images + imageFiles )
       .pipe( gulp.dest( publicFolder + images ) );
 
+    console.log( 'Testing ' + baseDir + options.src + instructions );
     if ( fs.existsSync( baseDir + options.src + instructions ) ) {
+      console.log( 'Building instructions....' );
       gulp.src( baseDir + options.src + instructions )
         .pipe( markdown() )
         .pipe( wrap( { src: exercises + 'instructions-template.html' } ) )
@@ -51,6 +53,8 @@ gulp.task( 'start-exercise', [ 'clean-all' ], function() {
       setTimeout( () => {
         process.exit( 0 );
       }, 2000 );
+    } else {
+      console.warn('Could not find ' + baseDir + options.src + instructions );
     }
 
   }
