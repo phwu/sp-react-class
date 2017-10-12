@@ -16,8 +16,8 @@ const App = () => {
   return (
     <section>
       <CustomHeader>
-        <h1>Express Scripts Banking Services</h1>
-        <div>Serving the Express Scripts community since Monday</div>
+        <h1>Super-Fake Banking Services</h1>
+        <div>Serving the community since Monday</div>
       </CustomHeader>
       <h1>{ today.getHours() < 12 ?  'Good morning' : 'Good afternoon'}, world</h1>
 
