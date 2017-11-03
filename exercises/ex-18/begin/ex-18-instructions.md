@@ -1,4 +1,4 @@
-# Exercise 1 Instructions
+# Exercise 18 Instructions
 ## Objectives
 1) Write tests for the reducer
 2) Write tests for the action

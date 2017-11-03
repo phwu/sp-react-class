@@ -27,25 +27,14 @@ const payee = ( state = payeesDAO.get( 23 ), action ) => {
 };
 
 const payees = ( state = payeesDAO.list(), action ) => {
-
   switch ( action.type ) {
-
     case 'GET_NEXT_PREV_PAYEE':
-      /*
-       console.log( 'payee-reducers.payees.GET_NEXT_PREV_PAYEE action:', action );
-       console.log( 'next: %d, state[next]: %o', next, state[ next ] );
-
-       payee( null, { type: action.type, payee: state[ next ] } );
-       */
       return state;
     default:
       return state;
   }
-
 };
 
 const payeeApp = combineReducers( { payees, payee } );
 
 export default payeeApp;
-
-export {payees};

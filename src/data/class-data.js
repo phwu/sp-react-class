@@ -13,7 +13,7 @@ let daoFactory = ( daoName ) => {
       return _filter( classData[ daoName ], criteria );
     }
   };
-}
+};
 
 let payeesDAO = daoFactory( 'payees' ),
   accountsDAO = daoFactory( 'accounts' ),

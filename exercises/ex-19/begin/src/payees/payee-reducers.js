@@ -14,4 +14,4 @@ const payee = ( state = payeesDAO.get( 23 ), action ) => {
 
 const payeeApp = combineReducers({payees, payee});
 
-export default payeeApp
+export default payeeApp;
