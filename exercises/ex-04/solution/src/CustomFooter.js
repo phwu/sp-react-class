@@ -12,6 +12,6 @@ const CustomFooter = ( props ) => {
       </address>
     </div>
   );
-}
+};
 
 export default CustomFooter;

@@ -25,20 +25,26 @@ You can hard code the day of the week for now.
 
 ### Style elements according to information in `props`
 
-Open ThemeViewer.js. Notice that the HTML has been defined for you.
+Open `ThemeViewer.js`. Notice that the HTML has been defined for you.
 
 1) Add code before the return statement to define two themes, **ocean** and **fire**.
+
 2) The ocean theme should use the following Bootstrap classes:
   * For buttons: btn and btn-info
   * For labels: label and label-primary
+
 3) The fire theme should use the following Bootstrap classes:
   * For buttons: btn and btn-danger 
   * For labels: label and label-warning
+
 4) Add code which looks for `props.theme` and chooses the theme appropriately
+
 5) Add classes to the buttons and labels using the classes set out in 3) above
+
 6) Open App.js
+
 7) Add `<ThemeViewer>` to `<App>` just before `<CustomFooter>`
 
 ### Testing
 Load [http://localhost:3000/](http://localhost:3000/) in your browser. It should look like this: 
-![Exercise 4 Solution](src/images/ex-04-complete.png)
+![Exercise 4 Solution](images/ex-04-complete.png)
