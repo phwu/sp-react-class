@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-7-instructions">Exercise 7 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Build a PayeeDetail component
+2) Get a Payee (payee #23 for instance)
+3) Pass it into PayeeDetail
+4) Render out its content
+5) Write tests</p>
+<h3 id="build-a-payeedetail-component">Build a PayeeDetail component</h3>
+<p>Open <code>payees/PayeeDetail.js</code>.</p>
+<p>Create a component that does the following:</p>
+<ul>
+<li>Can be a class or a function (but probably a function)</li>
+<li>Expects a payee as a passed property</li>
+<li>Renders the payee into a <a href="http://getbootstrap.com/components/#panels">Bootstrap panel</a><ul>
+<li>You can use the <code>panel-primary</code> class to style the panel</li>
+<li>Use a <code>ul.list-group</code> with <code>li.list-group-item</code> elements to render the 
+contents of the Payee</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-a-payee">Get a Payee</h3>
+<p>Open <code>App.js</code></p>
+<p>Note that <code>class-data</code> is already included, so you have access to
+<code>payeesDAO</code>.</p>
+<p>In the <code>constructor</code>, use <code>payeesDAO.get()</code> to retrieve a Payee and store 
+it on an instance variable (i.e., assign it to <code>this.payee</code>).</p>
+<h3 id="pass-it-into-payeedetail-">Pass it into <code>PayeeDetail</code></h3>
+<p>Import <code>PayeeDetail</code>.<br>Use <code>&lt;PayeeDetail&gt;</code> within the <code>&lt;section&gt;</code> element.
+Pass <code>this.payee</code> to <code>PayeeDetail</code>.</p>
+<h3 id="render-out-its-content">Render out its content</h3>
+<p>Open <a href="http://localhost:3000/">http://localhost:3000/</a> in your browser to see the results.</p>
+<p>It should look like this:
+<img src="images/ex-07-complete.png" alt="Exercise 7 Complete"></p>
+<h3 id="write-tests">Write tests</h3>
+<p>Open <code>payees/tests/PayeeDetail.spec.js</code>.<br>Some of the file has been created for you.<br>Fill in the tests required, specifically:</p>
+<ul>
+<li>A snapshot test.</li>
+<li>Test the content of <code>PayeeDetail</code> to see if it has rendered a Payee correctly.</li>
+<li>Test the <code>props</code> of <code>PayeeDetail</code> to see if the reference passed in is the 
+same as the one received.</li>
+<li>Test to ensure that <code>PayeeDetail</code> renders a <code>categoryName</code>. This is a property of 
+a nested object, so we test it separately. </li>
+</ul>
+<p>If you didn&#39;t leave <code>npm test</code> running in a separate window, re-run it now.</p>
+
+
+</body>
+</html>

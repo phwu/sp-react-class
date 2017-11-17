@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PayeeDetail snapshots renders correctly 1`] = `
+<div
+  className="panel panel-success"
+>
+  <div
+    className="panel-heading"
+  >
+    Goodman, Lieber, Kurtzberg, Holliway
+  </div>
+  <ul
+    className="list-group"
+  >
+    <li
+      className="list-group-item"
+    >
+      Goodman, Lieber, Kurtzberg, Holliway
+    </li>
+    <li
+      className="list-group-item"
+    >
+      16 W 12 St.
+    </li>
+    <li
+      className="list-group-item"
+    >
+      New York
+      , 
+      NY
+       
+      10015
+    </li>
+    <li
+      className="list-group-item"
+    >
+      Category: 
+      Salary
+    </li>
+  </ul>
+</div>
+`;

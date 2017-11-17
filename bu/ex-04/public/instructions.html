@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-4-instructions">Exercise 4 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Use inline JavaScript in our JSX to conditionally display information</li>
+<li>Use the <code>props.children</code> feature to render out child elements of the parent component without knowing them in advance</li>
+<li>Style elements according to information in <code>props</code></li>
+</ul>
+<h2 id="directions">Directions</h2>
+<h3 id="use-inline-javascript-in-our-jsx-to-conditionally-display-information">Use inline JavaScript in our JSX to conditionally display information</h3>
+<p>In <code>&lt;App&gt;</code>, between the <code>&lt;CustomHeader&gt;</code> and <code>&lt;CustomFooter&gt;</code>, replace the <code>&lt;h1&gt;Hello, world&lt;/h1&gt;</code>
+with a greeting (still in <code>&lt;h1&gt;</code>) that says &#39;Good Morning&#39; or &#39;Good Afternoon&#39;
+as appropriate to the time of day.</p>
+<h3 id="use-the-props-children-feature-to-render-out-child-elements-of-the-parent-component-without-knowing-them-in-advance">Use the <code>props.children</code> feature to render out child elements of the parent component without knowing them in advance</h3>
+<p>In <code>&lt;CustomHeader&gt;</code>, pull the content between the <code>&lt;section&gt;</code> tags out of CustomHeader.js and 
+move them to be between <code>&lt;CustomHeader&gt;</code> and <code>&lt;/CustomHeader&gt;</code> in <code>&lt;App&gt;</code></p>
+<p>Replace the content in <code>&lt;CustomHeader&gt;</code> with a call to <code>props.children</code>.</p>
+<p>Feel free to experiment with other content. The point is that, whatever you put under 
+<code>&lt;CustomHeader&gt;</code> is styled appropriately.</p>
+<p>You can hard code the day of the week for now.</p>
+<h3 id="style-elements-according-to-information-in-props-">Style elements according to information in <code>props</code></h3>
+<p>Open ThemeViewer.js. Notice that the HTML has been defined for you.</p>
+<p>1) Add code before the return statement to define two themes, <strong>ocean</strong> and <strong>fire</strong>.
+2) The ocean theme should use the following Bootstrap classes:</p>
+<ul>
+<li>For buttons: btn and btn-info</li>
+<li>For labels: label and label-primary
+3) The fire theme should use the following Bootstrap classes:</li>
+<li>For buttons: btn and btn-danger </li>
+<li>For labels: label and label-warning
+4) Add code which looks for <code>props.theme</code> and chooses the theme appropriately
+5) Add classes to the buttons and labels using the classes set out in 3) above
+6) Open App.js
+7) Add <code>&lt;ThemeViewer&gt;</code> to <code>&lt;App&gt;</code> just before <code>&lt;CustomFooter&gt;</code></li>
+</ul>
+<h3 id="testing">Testing</h3>
+<p>Load <a href="http://localhost:3000/">http://localhost:3000/</a> in your browser. It should look like this: 
+<img src="src/images/ex-04-complete.png" alt="Exercise 4 Solution"></p>
+
+
+</body>
+</html>

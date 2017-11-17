@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing snapshot 1`] = `
+<div
+  className="footer"
+>
+  <hr />
+  <p>
+    Copyright © 2017 
+    Polly rocks
+  </p>
+  <address>
+    123
+    <br />
+    , 
+    FL
+    <br />
+  </address>
+</div>
+`;

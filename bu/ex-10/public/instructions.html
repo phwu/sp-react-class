@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-10-instructions">Exercise 10 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Extract some code into the <code>PayeesContainer</code>, <code>PayeeDetail</code>, and <code>BrowserButtons</code> components
+2) Add custom events to <code>BrowserButtons</code>
+3) Refactor code to handle <code>BrowserButtons</code>&#39; custom events</p>
+<h3 id="extract-code-into-multiple-components">Extract code into multiple components</h3>
+<p>Currently, all the code is in <code>PayeeDetail</code>, which is untenable.<br>We have moved some code around for you. Here is a rundown of what to expect:</p>
+<ul>
+<li><code>PayeesContainer</code> will be the root element for the application. It will contain:</li>
+<li><code>PayeeDetail</code> which reverts to being a pure functional presentational component</li>
+<li><code>BrowserButtons</code>, a generic, reusable, functional component which will send 
+custom events when its buttons are pressed.</li>
+</ul>
+<p>Start in <code>PayeeDetail</code>. Grab the <code>div.btn-group</code> element and move it into 
+<code>BrowserButtons</code>. You can also drop the now-useless containing <code>div</code> in <code>PayeeDetail</code>.</p>
+<h3 id="add-custom-events-to-browserbuttons-">Add custom events to <code>BrowserButtons</code></h3>
+<p>Move over to <code>BrowserButtons</code>. Attach <code>onClick</code> event handlers to the buttons, which invoke
+the <code>onNextPrev</code> property passed into <code>BrowserButtons</code>. The invocation should pass
+back the direction of the button (&#39;next&#39; or &#39;previous&#39;). You may have to use a slightly
+different event binding syntax here. </p>
+<h3 id="refactor-code-the-handle-browserbuttons-custom-events">Refactor code the handle <code>BrowserButtons</code>&#39; custom events</h3>
+<p>Change to <code>PayeesContainer</code>. Start by adding <code>PayeeDetail</code> and <code>BrowserButtons</code>
+to the <code>render</code> function. Bind the <code>payee</code> from <code>state</code> to <code>PayeeDetail</code>. </p>
+<p>For <code>BrowserButtons</code>, bind the appropriate event handler in <code>PayeesContainer</code> 
+to the <code>onNextPrev</code> custom event emitted by <code>BrowserButtons</code>.</p>
+<h3 id="testing">Testing</h3>
+<p>Open your browser to <a href="http://localhost:3000/">http://localhost:3000/</a>. You can 
+interact with the component directly. The behavior will not have changed from
+the previous exercise, but the appearance will have changed from the starting
+point of the exercise. </p>
+<h3 id="challenge-bonus">Challenge/Bonus</h3>
+<p>Add code to <code>PayeeDetail</code> which changes the enhancement class of the panel 
+(currently <code>panel-primary</code>) for Payees of different categoryNames.  </p>
+
+
+</body>
+</html>

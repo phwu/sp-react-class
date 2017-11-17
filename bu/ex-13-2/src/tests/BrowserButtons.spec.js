@@ -22,7 +22,3 @@ test( 'Register a "Next" click', () => {
   expect( onNextPrevSpy.callCount ).toBeGreaterThan( 0 );
 } );
 
-/*polly test*/
-test( 'no clicks', () => {
-  expect(onNextPrevSpy.callCount).toBe(0);
-} );

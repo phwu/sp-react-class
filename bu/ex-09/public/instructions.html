@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-9-instructions">Exercise 9 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Load a list of Payees 
+2) Use state to track the currently displayed Payee
+3) Use event handlers to browse through the set of Payees</p>
+<h3 id="load-a-list-of-payees">Load a list of Payees</h3>
+<p>We need to load a list of Payees from <code>payeesDAO</code>. So we have converted <code>PayeeDetail</code>
+to a class-based component for this exercise. (Do not worry, we will switch it 
+back soon enough.)  </p>
+<p>In the <code>constructor</code>, use <code>payeesDAO</code> to retrieve a list of Payees.  </p>
+<h3 id="use-state-to-track-the-currently-displayed-payee">Use state to track the currently displayed Payee</h3>
+<p>Create a state object which tracks the currently displayed Payee.<br>You can do this with <code>props.payee</code>, or possibly with the index of the current
+Payee. Your choice.</p>
+<h3 id="use-event-handlers-to-browse-through-the-set-of-payees">Use event handlers to browse through the set of Payees</h3>
+<p>You may have noticed that <code>this.handleNext</code> and <code>this.handlePrevious</code> are 
+are already bound to the appropriate buttons. But they are <strong>NOT</strong> bound 
+to the component instance. If you try to use <code>this.state</code> in either event
+handler, you will run into problems.</p>
+<p>Bind the two event handlers properly in the <code>constructor</code>. </p>
+<p>Add code to each event handler which will call <code>this.setState()</code> to update 
+the currently displayed Payee. Make sure that you handle boundary cases and 
+do not browse &quot;past&quot; the end of the array or &quot;before&quot; the beginning. </p>
+<h3 id="challenge">Challenge</h3>
+<p>Combine the two event handlers into one, since there is so much shared code
+between the two.</p>
+<h3 id="testing">Testing</h3>
+<p>Open your browser to <a href="http://localhost:3000/">http://localhost:3000/</a>. You can 
+interact with the component directly. The appearance will not have changed from
+the previous exercise, but the buttons will now allow you to browse through
+the set of Payees.</p>
+
+
+</body>
+</html>

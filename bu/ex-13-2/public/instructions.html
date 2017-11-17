@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-13-instructions">Exercise 13 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Create a component, PayeeList, which renders a list of Payees into a table
+2) This will include a component, PayeeRow, as well</p>
+<p>We will actually do this in reverse order, as we need the PayeeRow for the PayeeList.</p>
+<h3 id="create-payeerow-">Create <code>PayeeRow</code></h3>
+<p><code>PayeeRow</code> renders one row in an HTML <code>&lt;table&gt;</code>.<br>Open PayeeRow.js<br>Create a pure functional component which returns a table row with the following
+characteristics:</p>
+<ul>
+<li>Expects to be passed a <code>payee</code> and a handler, <code>onPayeeSelect</code>.</li>
+<li>It should render the Payee&#39;s name, city, and state</li>
+<li>The row should have the class <code>clickable</code>.</li>
+<li>When the row is clicked on, it should invoke the <code>onPayeeSelect</code> custom event, 
+passing it the clicked-on payee. <ul>
+<li>The <code>onPayeeSelect</code> event handler will be passed in by <code>PayeeList</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="create-payeelist-">Create <code>PayeeList</code></h3>
+<p><code>PayeeList</code> renders an HTML table, using <code>PayeeRow</code> for the rows
+Open PayeeList.js
+Create a pure functional component which has the following characteristics:</p>
+<ul>
+<li>Expects to be passed a list of payees and an <code>onPayeeSelect</code> handler<ul>
+<li>The <code>onPayeeSelect</code> event handler will be passed in by <code>PayeesContainer</code>.</li>
+</ul>
+</li>
+<li>Renders a table with the classes <code>table</code> and <code>table-hover</code>.</li>
+<li>Renders a <code>&lt;thead&gt;</code> section with three column headings: payee name, city, and state</li>
+<li>Renders a <code>&lt;tbody&gt;</code> section which iterates over the <code>payees</code> property and 
+prints out a <code>PayeeRow</code> for each payee. <ul>
+<li>Do not forget to add a <code>key</code> property to the <code>PayeeRow</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="update-payeescontainer-">Update <code>PayeesContainer</code></h3>
+<p>We need to update <code>PayeesContainer</code> to handle our two views: <code>PayeeList</code> and <code>PayeeDetail</code>.<br>We have moved the code for <code>PayeeDetail</code> and <code>BrowserButtons</code> into <code>PayeeBrowser</code>.
+<code>PayeeBrowser</code> accepts three properties:</p>
+<ul>
+<li><code>payee</code>: A Payee to display</li>
+<li><code>onNextPrev</code>: A handler for the onNextPrev custom event</li>
+<li><code>onBack</code>: A handler for the new onBack event, which is triggered by <code>BrowserButtons</code>&#39;
+new Back button</li>
+</ul>
+<p>Start by writing a <code>handlePayeeSelect</code> event handler. Be sure to bind it in the 
+<code>constructor</code>. On <code>this.state</code>, it should set the view to the detail view, and the
+payee to the payee passed to the handler. </p>
+<p>Then write an <code>backToList</code> event handler. Be sure to bind it in the <code>constructor</code>.
+It should set the <code>view</code> property of <code>this.state</code> to the list view.</p>
+<p>Finally, in the <code>render</code> method, create a variable, <code>view</code>. This will hold the 
+component which <code>PayeesContainer</code> is currently displaying, either <code>PayeeList</code>
+or <code>PayeeDetail</code>. The default should be to display <code>PayeeList</code>. Make sure 
+that you pass in an <code>onPayeeSelect</code> handler and a list of payees to <code>PayeeList</code>.  </p>
+<p>Add an if statement with a condition to check if the current this.state.view is
+the detail view. If so, assign a <code>PayeeBrowser</code> instance to <code>view</code> instead. Do 
+not forget to pass a Payee, an <code>onBack</code> handler, and an <code>onNextPrev</code> handler to 
+<code>PayeeBrowser</code>. </p>
+<p>The return value of the <code>render</code> method should be <code>view</code> wrapped by a <code>&lt;div&gt;</code>. </p>
+
+
+</body>
+</html>

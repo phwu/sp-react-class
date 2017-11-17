@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-3-instructions">Exercise 3 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Create a CustomHeader component</li>
+<li>Create a CustomFooter component</li>
+<li>Pass properties to both components which are rendered within the component&#39;s output</li>
+</ul>
+<h2 id="directions">Directions</h2>
+<h3 id="create-a-customheader-component">Create a CustomHeader component</h3>
+<p>Open the file CustomHeader.js</p>
+<p>Create a React component therein.
+It should expect a property, <code>today</code>, which contains the day of the week.
+Use that to output a message.</p>
+<p>Consult the screenshot below to see what the output should look like</p>
+<h3 id="create-a-customfooter-component">Create a CustomFooter component</h3>
+<p>Open the file CustomFooter.js</p>
+<p>Create a React component therein.
+It should expect a property <code>company</code>, which has the following structure:</p>
+<pre><code class="lang-javascript">  let company = {
+    name   : &#39;Express Scripts&#39;,
+    address: &#39;100 Forest Lane&#39;,
+    city   : &#39;Franklin Lakes&#39;,
+    state  : &#39;NJ&#39;,
+    zip    : &#39;07027&#39;
+  }
+</code></pre>
+<h3 id="pass-properties-to-both-components-">Pass properties to both components....</h3>
+<p>Open App.js</p>
+<p>1) Add a variable <code>company</code>, defined similar to the example above
+2) Add <code>&lt;CustomHeader&gt;</code> to App&#39;s return statement. Pass it the current day of the week.
+3) Add <code>&lt;CustomFooter&gt;</code> to App&#39;s return statement. Pass it the <code>company</code> defined in item 1 above.</p>
+<h3 id="testing">Testing</h3>
+<p>Load <a href="http://localhost:3000/">http://localhost:3000/</a> in your browser. It should look like this: 
+<img src="images/ex-03-complete.png" alt="Exercise 3 Solution"></p>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-6-instructions">Exercise 6 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Create a component, LoggedIn, as a banner to show when the user is logged in.
+2) Create a component, NotLoggedIn, as a banner to show when the user is <strong>NOT</strong> logged in.
+3) Conditionally display the appropriate banner within <code>&lt;App&gt;</code>.</p>
+<h3 id="loggedin">LoggedIn</h3>
+<p>Open LoggedIn.js</p>
+<p>Create a functional component here. The component should display a banner indicating 
+that the user is logged in. You may want to use the <a href="http://getbootstrap.com/components/#alerts-examples">classes for alerts</a> in Bootstrap
+to get a banner effect.</p>
+<h3 id="notloggedin">NotLoggedIn</h3>
+<p>Open NotLoggedIn.js</p>
+<p>As above, create a component which displays a banner for when the user is not logged in.</p>
+<h3 id="conditionally-display-the-appropriate-banner">Conditionally display the appropriate banner</h3>
+<p>Open App.js</p>
+<p>Before the <code>return</code> statement, initialize a variable <code>loggedIn</code>. Set it to true if the 
+user is logged in, false otherwise. (Obviously, we have no user login at the moment, but 
+may in the future. We are simply sketching out the UI here.)</p>
+<p>If <code>loggedIn</code> is true, display the <code>LoggedIn</code> component. If <code>loggedIn</code> is false, 
+display the <code>NotLoggedIn</code> component. </p>
+<h3 id="testing">Testing</h3>
+<p>Load <a href="http://localhost:3000/">http://localhost:3000/</a> in your browser. </p>
+<p>It should look like this when <code>loggedIn</code> is true: 
+<img src="images/ex-06-logged-in-complete.png" alt="Exercise 6 Solution"></p>
+<p>It should look like this when <code>loggedIn</code> is false: 
+<img src="images/ex-06-not-logged-in-complete.png" alt="Exercise 6 Solution"></p>
+
+
+</body>
+</html>
