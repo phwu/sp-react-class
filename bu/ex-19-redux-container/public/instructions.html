@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Instructions</title>
+  <link rel="stylesheet" href="instructions.css">
+</head>
+<body>
+
+<h1 id="exercise-19-instructions">Exercise 19 Instructions</h1>
+<h2 id="objectives">Objectives</h2>
+<p>1) Create a store to manage PayeeDetail&#39;s state
+2) Create action(s) and reducer(s) to interact with the store
+3) Connect the store to PayeeDetail using connect</p>
+<h3 id="create-a-store-to-manage-payeedetail-s-state">Create a store to manage PayeeDetail&#39;s state</h3>
+<p>Open <code>App.js</code>.<br>Import <code>createStore</code> from redux
+Do <strong>not</strong> create a store yet. Because you will need a reducer to do that. Go to the next objective. </p>
+<h3 id="create-action-s-and-reducer-s-to-interact-with-the-store">Create action(s) and reducer(s) to interact with the store</h3>
+<p>Open <code>payees/payee-actions.js</code>. </p>
+<p>What&#39;s the next logical bit of state we have to worry about? Next or previous Payee!</p>
+<p>Create a constant, <code>getNextPrev</code> which takes the appropriate arguments and returns an action
+with a type of GET_NEXT_PREV_PAYEE and appropriate properties</p>
+<p>Open <code>payees/payee-reducers.js</code>
+Add a reducer for payees (yes, payees, plural). This should simply get the set of payees from <code>payeesDAO.list()</code>
+Add an action case to the payee reducer for GET_NEXT_PREV_PAYEE. The code for this case will calculate
+the appropriate payee to return. If the payee position would be greater or less than the number of payees, 
+block the list at the last or first payee, as appropriate</p>
+<p>You will have to use the <code>payees</code> reducer to get the set of payees in the first place. Call it with 
+no state (<code>undefined</code>) and the same action item</p>
+<p>Return to the reducer for <code>payees</code> and write a case for GET_NEXT_PREV_PAYEE</p>
+<p>Now that you have a reducer, you can go back to <code>App.js</code> and import the reducer and add it to the store.</p>
+<h3 id="connect-the-store-to-payeedetail-using-connect-">Connect the store to PayeeDetail using <code>connect</code></h3>
+<p>Open <code>payees/PayeeContainerRedux.js</code></p>
+<p>Change <code>mapDispatchToProps</code> to a dispatcher function which dispatches the current payee
+and the direction to <code>getNextPrev</code> from your actions.</p>
+<h3 id="test-out-your-code-">Test out your code!</h3>
+
+
+</body>
+</html>
